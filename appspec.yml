@@ -1,0 +1,24 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/codedeploy
+permissions:
+  - object: /home/ubuntu/codedeploy
+    owner: ubuntu
+    group: ubuntu
+    pattern: "*"
+    mode: 775
+    type:
+      - file
+      - directory
+hooks:
+  BeforeInstall:
+    - location: hooks/1.pull.sh
+      runas: ubuntu
+  AfterInstall:
+    - location: hooks/2.deploy.sh
+      runas: ubuntu
+  ApplicationStart:
+    - location: hooks/3.start.sh
+      runas: ubuntu
