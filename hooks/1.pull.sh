@@ -5,7 +5,7 @@ set -x
 
 echo "BeforeInstall"
 #Set variable
-if [[ "$APPLICATION_NAME" == *"-dev"* ]]; then
+if [[ "$APPLICATION_NAME" == *"-dev"* ]]; then ###Dev
     BRANCH="master"
     RELEASE_TAG="master" 
 else
@@ -16,7 +16,7 @@ echo Branch deployment is $BRANCH
 APP_FOLDER="codedeploy"
 
 #Pull/Clone code from repo | If exist -> Fetch(in-place EC2); else Clone(new EC2)
-cd /home/deploy
+cd /home/ubuntu
 if [ -d "$APP_FOLDER" ]; then
     cd $APP_FOLDER
     git reset --hard
