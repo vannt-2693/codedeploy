@@ -2,15 +2,15 @@
 set -e
 set -x
 
-
 echo "AfterInstall"
 #Set variable
-if [[ "$APPLICATION_NAME" == *"-dev"* ]]; then
-    ENV="dev"
-else
-    exit 1
-fi
+APP_FOLDER="codedeploy"
+
 echo Branch deployment is $BRANCH
 
-PROJECT="codedeploy"
-APP_FOLDER="codedeploy"
+#Copy .env file from S3 secrets to web folder
+cd /home/ubuntu/$APP_FOLDER
+
+#sudo rm /var/www/html/index.html
+sudo cp index.html /var/www/html/
+# install all dependencies for project
