@@ -4,7 +4,7 @@ set -x
 
 echo "AfterInstall"
 #Set variable
-APP_FOLDER="codedeploy"
+APP_FOLDER="demo-asg-bg"
 
 echo Branch deployment is $BRANCH
 
